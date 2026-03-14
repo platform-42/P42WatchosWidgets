@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import P42_extensions
+import P42Extensions
 
 
 /*
@@ -64,6 +64,7 @@ public class Widget {
         }
     }
     
+    @available(iOS 13.0, *)
     public static func stateFieldColor(_ stateLogic: WidgetState) -> Color {
         switch (stateLogic) {
             case .up: return Color(hex: WidgetStateColor.up.rawValue)
@@ -73,6 +74,7 @@ public class Widget {
         }
     }
     
+    @available(iOS 13.0, *)
     public static func statusFieldColor(_ statusLogic: WidgetStatus) -> Color {
         switch (statusLogic) {
             case .alert: return .white
@@ -82,6 +84,7 @@ public class Widget {
         }
     }
     
+    @available(iOS 13.0, *)
     public static func statusFieldBackgroundColor(_ statusLogic: WidgetStatus) -> Color {
         switch (statusLogic) {
             case .alert: return Color(hex: WidgetStatusColor.alert.rawValue)
