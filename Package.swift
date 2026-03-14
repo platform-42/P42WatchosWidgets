@@ -15,7 +15,7 @@ let package = Package(
             targets: ["P42WatchosWidgets"]),
     ],
     dependencies: [
-        .package(url: "git@github.com:platform-42/P42Extensions.git", branch: "main")
+        .package(url: "git@github.com:platform-42/P42Extensions.git", from: "8.0.0")
     ],
     targets: [
         .target(
