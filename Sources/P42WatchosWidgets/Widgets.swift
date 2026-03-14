@@ -45,6 +45,7 @@ enum FunnelDimension {
 }
 
 
+@available(iOS 15.0.0, *)
 public struct FunnelItem: Identifiable {
     public let id = UUID()
     public let label: String
@@ -67,6 +68,7 @@ public struct FunnelItem: Identifiable {
 
 
 
+@available(iOS 13.0, *)
 public struct HeaderView: View {
     
     let connectionColor: Color
@@ -108,6 +110,7 @@ public struct HeaderView: View {
 }
 
 
+@available(iOS 13.0, *)
 private extension HeaderView {
     
     var titleView: some View {
@@ -150,6 +153,7 @@ private extension HeaderView {
 }
 
 
+@available(iOS 15.0.0, *)
 public struct NumberAndStatView: View {
     var period: String
     var periodColor: Color
@@ -191,13 +195,17 @@ public struct NumberAndStatView: View {
                         .padding(.vertical, 4)
                         .padding(.horizontal, 4)
                 }
-                BadgedLabel(
-                    content: .text(String(secondaryValue)),
-                    foregroundColor: Widget.statusFieldColor(widgetStatus),
-                    font: .caption2,
-                    backgroundColor: Widget.statusFieldBackgroundColor(widgetStatus),
-                    padding: EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4)
-                )
+                if #available(iOS 14.0, *) {
+                    BadgedLabel(
+                        content: .text(String(secondaryValue)),
+                        foregroundColor: Widget.statusFieldColor(widgetStatus),
+                        font: .caption2,
+                        backgroundColor: Widget.statusFieldBackgroundColor(widgetStatus),
+                        padding: EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4)
+                    )
+                } else {
+                    // Fallback on earlier versions
+                }
             }
             Divider()
         }
@@ -205,6 +213,7 @@ public struct NumberAndStatView: View {
 }
 
 
+@available(iOS 13.0, *)
 public struct NumberAndStateView: View {
     let period: String
     let periodColor: Color
@@ -270,6 +279,7 @@ public struct NumberAndStateView: View {
 }
 
 
+@available(iOS 15.0.0, *)
 public struct FooterView<LastUpdateView: View>: View {
     let topic: String
     let topicColor: Color?
@@ -303,6 +313,7 @@ public struct FooterView<LastUpdateView: View>: View {
 }
 
 
+@available(iOS 15.0.0, *)
 public struct MetricsView: View {
     
     public let title: String
@@ -352,7 +363,7 @@ public struct MetricsView: View {
             HStack(spacing: 4) {
                 Text(title)
                     .font(.system(size: HeaderDimension.fontSize, weight: .medium, design: .rounded))
-                    .foregroundColor(Color(hex: WidgetColor.blue))
+                    .foregroundColor(Color.blue)
                     .padding(.horizontal, HeaderDimension.hSpacing)
                     .padding(.vertical, HeaderDimension.vSpacing)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -405,6 +416,7 @@ public struct MetricsView: View {
 }
 
 
+@available(iOS 15.0.0, *)
 extension MetricsView {
     
     private func dashboardRow(
@@ -460,6 +472,7 @@ extension MetricsView {
 }
 
 
+@available(iOS 15.0.0, *)
 extension MetricsView {
     
     @ViewBuilder
@@ -518,6 +531,7 @@ extension MetricsView {
 }
 
 
+@available(iOS 15.0.0, *)
 public struct FunnelView: View {
     
     public let title: String
@@ -542,7 +556,7 @@ public struct FunnelView: View {
             HStack(spacing: 4) {
                 Text(title)
                     .font(.system(size: HeaderDimension.fontSize, weight: .medium, design: .rounded))
-                    .foregroundColor(Color(hex: WidgetColor.blue))
+                    .foregroundColor(Color.blue)
                     .padding(.horizontal, HeaderDimension.hSpacing)
                     .padding(.vertical, HeaderDimension.vSpacing)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -580,6 +594,7 @@ public struct FunnelView: View {
 }
 
 
+@available(iOS 15.0.0, *)
 extension FunnelView {
     
     private func dashboardRow(
@@ -637,6 +652,7 @@ extension FunnelView {
 }
 
 
+@available(iOS 15.0.0, *)
 extension FunnelView {
     
     private var baseRowGradient: LinearGradient {
@@ -668,6 +684,7 @@ extension FunnelView {
 }
 
 
+@available(iOS 15.0.0, *)
 public struct BadgedLabel: View {
     
     let content: BadgedLabelContent

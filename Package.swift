@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "P42WatchosWidgets",
     platforms: [
-        .watchOS(.v11)
+        .watchOS(.v11),
+        .iOS(.v17)
     ],
     products: [
         .library(

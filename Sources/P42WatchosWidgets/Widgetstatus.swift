@@ -53,6 +53,7 @@ public enum WidgetStatusColor: Int {
 }
 
 
+@available(iOS 15.0.0, *)
 public class Widget {
 
     public static func stateFieldImage(_ stateLogic: WidgetState) -> String {
@@ -64,7 +65,6 @@ public class Widget {
         }
     }
     
-    @available(iOS 13.0, *)
     public static func stateFieldColor(_ stateLogic: WidgetState) -> Color {
         switch (stateLogic) {
             case .up: return Color(hex: WidgetStateColor.up.rawValue)
@@ -74,7 +74,6 @@ public class Widget {
         }
     }
     
-    @available(iOS 13.0, *)
     public static func statusFieldColor(_ statusLogic: WidgetStatus) -> Color {
         switch (statusLogic) {
             case .alert: return .white
@@ -84,7 +83,6 @@ public class Widget {
         }
     }
     
-    @available(iOS 13.0, *)
     public static func statusFieldBackgroundColor(_ statusLogic: WidgetStatus) -> Color {
         switch (statusLogic) {
             case .alert: return Color(hex: WidgetStatusColor.alert.rawValue)
