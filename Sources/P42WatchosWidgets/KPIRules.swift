@@ -33,10 +33,15 @@ public extension KPIOperator {
 
 
 public struct KPIRule {
-    let op: KPIOperator
-    let value: Double
+    public let op: KPIOperator
+    public let value: Double
     
-    func matches(_ input: Double) -> Bool {
+    public init(op: KPIOperator, value: Double) {
+        self.op = op
+        self.value = value
+    }
+    
+    public func matches(_ input: Double) -> Bool {
         op.matches(input, value)
     }
 }
