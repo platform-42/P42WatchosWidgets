@@ -209,6 +209,7 @@ public struct KPIView: View {
             ForEach(kpiListItems.prefix(3)) { item in
                 kpiRow(kpiItem: item)
                     .padding(.vertical, 2)
+                    .padding(.horizontal, 10)
             }
             footerView(footer: footer)
                 .padding(.top, 4)
