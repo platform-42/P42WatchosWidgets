@@ -74,22 +74,5 @@ public class Widget {
         }
     }
     
-    public static func statusFieldColor(_ statusLogic: WidgetStatus) -> Color {
-        switch (statusLogic) {
-            case .alert: return .white
-            case .warning: return .black
-            case .normal: return .primary
-            case .none: return .primary
-        }
-    }
-    
-    public static func statusFieldBackgroundColor(_ statusLogic: WidgetStatus) -> Color {
-        switch (statusLogic) {
-            case .alert: return Color(hex: WidgetStatusColor.alert.rawValue)
-            case .warning: return Color(hex: WidgetStatusColor.warning.rawValue)
-            case .normal: return Color(hex: WidgetStatusColor.normal.rawValue)
-            case .none: return Color.clear
-        }
-    }
         
 }
