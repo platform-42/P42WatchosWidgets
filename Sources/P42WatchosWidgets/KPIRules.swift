@@ -43,13 +43,21 @@ public struct KPIRule {
 
 
 public struct KPIStateRules {
-    let normal: KPIRule?
-    let warning: KPIRule?
-    let error: KPIRule?
+    public let normal: KPIRule?
+    public let warning: KPIRule?
+    public let error: KPIRule?
     
-    func evaluate(
-        _ value: Double
-    ) -> KPIState {
+    public init(
+        normal: KPIRule? = nil,
+        warning: KPIRule? = nil,
+        error: KPIRule? = nil
+    ) {
+        self.normal = normal
+        self.warning = warning
+        self.error = error
+    }
+    
+    public func evaluate(_ value: Double) -> KPIState {
         if let error, error.matches(value) {
             return .alert
         }
