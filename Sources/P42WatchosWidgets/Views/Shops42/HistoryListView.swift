@@ -57,8 +57,8 @@ public struct HistoryListView: View {
         
         VStack {
             headerView(
-                title: title,
-                titleBadge: "",
+                title: title.uppercased(),
+                titleBadge: titleBadge,
                 latency: latency
             )
             List{
