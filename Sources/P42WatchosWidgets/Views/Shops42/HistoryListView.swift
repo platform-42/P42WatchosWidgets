@@ -56,12 +56,12 @@ public struct HistoryListView: View {
     public var body: some View {
         
         VStack {
+            headerView(
+                title: title,
+                titleBadge: "",
+                latency: latency
+            )
             List{
-                headerView(
-                    title: title,
-                    titleBadge: "",
-                    latency: latency
-                )
                 ForEach(historyList) { order in
                     HStack {
                         VStack {
