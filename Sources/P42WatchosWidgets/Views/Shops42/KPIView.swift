@@ -200,7 +200,7 @@ public struct KPIView: View {
     
     public var body: some View {
         VStack(spacing: 0) {
-            headerView(
+            HeaderView(
                 title: title.uppercased(),
                 titleBadge: titleBadge,
                 latency: latency
@@ -211,8 +211,8 @@ public struct KPIView: View {
                     .padding(.vertical, 2)
                     .padding(.horizontal, 10)
             }
-            footerView(footer: footer)
-                .padding(.top, 4)
+            FooterView(footer: footer)
+            .padding(.top, 4)
         }
     }
 }
