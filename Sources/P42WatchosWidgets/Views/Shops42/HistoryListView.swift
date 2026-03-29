@@ -10,31 +10,8 @@ import P42Extensions
 
 
 public enum OrderStatus {
-    case paid, pending, refunded
-
-    var color: Color {
-        switch self {
-        case .paid: return Color(hex: ColorRGB.kpiStateNormal)
-        case .pending: return Color(hex: ColorRGB.kpiStateWarning)
-        case .refunded: return Color(hex: ColorRGB.kpiStateWarning)
-        }
-    }
-
-    var label: String {
-        switch self {
-        case .paid: return "Paid"
-        case .pending: return "Pending"
-        case .refunded: return "Refunded"
-        }
-    }
-}
-
-
-
-public enum OrderStatus2 {
     case paid, pending, refunded, unknown
 
-    // MARK: - Public initializer (from Shopify string)
     public init(
         shopifyStatus: String
     ) {
@@ -49,8 +26,6 @@ public enum OrderStatus2 {
             self = .unknown
         }
     }
-
-    // MARK: - UI helpers
 
     public var color: Color {
         switch self {
