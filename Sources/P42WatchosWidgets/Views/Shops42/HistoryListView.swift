@@ -9,11 +9,32 @@ import SwiftUI
 import P42Extensions
 
 
+public enum OrderStatus {
+    case paid, pending, refunded
+
+    var color: Color {
+        switch self {
+        case .paid: return .green
+        case .pending: return .yellow
+        case .refunded: return .red
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .paid: return "Paid"
+        case .pending: return "Pending"
+        case .refunded: return "Refunded"
+        }
+    }
+}
+
+
 public struct HistoryListItem: Identifiable {
     public let id: Int
     public let name: String
     public let createdAt: String
-    public let financialStatus: String
+    public let financialStatus: OrderStatus
     public let quantity: Double
     public let quantityType: ValueType
     
@@ -21,7 +42,7 @@ public struct HistoryListItem: Identifiable {
         id: Int,
         name: String,
         createdAt: String,
-        financialStatus: String,
+        financialStatus: OrderStatus,
         quantity: Double,
         quantityType: ValueType
     ) {
@@ -70,9 +91,9 @@ public struct HistoryListView: View {
                         VStack {
                             Text(order.name)
                             BadgedLabel(
-                                content: .text(order.financialStatus),
+                                content: .text(order.financialStatus.label),
                                 foregroundColor: .black,
-                                backgroundColor: .yellow,
+                                backgroundColor: order.financialStatus.color,
                                 padding: EdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
                             )
                         }
