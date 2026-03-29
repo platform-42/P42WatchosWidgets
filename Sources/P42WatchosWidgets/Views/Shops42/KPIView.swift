@@ -293,10 +293,6 @@ extension KPIView {
                         .padding(KPIDimension.badgeInnerPadding)
                         .background(Color(hex: ColorRGB.badge))
                         .clipShape(Circle())
- //                       .overlay(
- //                           Circle()
- //                               .stroke(Color.white, lineWidth: 1) // 👈 stroke here
- //                       )
                 }
                 Text(title)
                     .font(.system(
