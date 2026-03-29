@@ -9,7 +9,7 @@ import SwiftUI
 import P42Extensions
 
 
-struct HistoryListItem: Identifiable {
+public struct HistoryListItem: Identifiable {
     public let id: Int
     public let name: String
     public let createdAt: String
@@ -35,10 +35,16 @@ struct HistoryListItem: Identifiable {
     
 }
 
-struct HistoryListView: View {
-    let historyList: [HistoryListItem]
+public struct HistoryListView: View {
+    public let historyList: [HistoryListItem]
     
-    var body: some View {
+    public init(
+        historyList: [HistoryListItem]
+    ) {
+        self.historyList = historyList
+    }
+    
+    public var body: some View {
         
         VStack {
             List{
