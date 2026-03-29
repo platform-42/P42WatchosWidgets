@@ -38,17 +38,20 @@ public struct HistoryListItem: Identifiable {
 public struct HistoryListView: View {
     public let title: String
     public let titleBadge: String?
+    public let footer: String
     public let historyList: [HistoryListItem]
     public let latency: String?
 
     public init(
         title: String,
         titleBadge: String? = nil,
+        footer: String,
         historyList: [HistoryListItem],
         latency: String? = nil
     ) {
         self.title = title
         self.titleBadge = titleBadge
+        self.footer = footer
         self.historyList = historyList
         self.latency = latency
     }
@@ -56,7 +59,7 @@ public struct HistoryListView: View {
     public var body: some View {
         
         VStack {
-            headerView(
+            HeaderView(
                 title: title.uppercased(),
                 titleBadge: titleBadge,
                 latency: latency
@@ -85,49 +88,9 @@ public struct HistoryListView: View {
             #if os(watchOS)
             .listStyle(CarouselListStyle())
             #endif
+            FooterView(footer: footer)
         }
     }
 }
 
 
-extension HistoryListView {
-    
-    @ViewBuilder
-    private func headerView(
-        title: String,
-        titleBadge: String?,
-        latency: String?
-    ) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                if let badge = titleBadge {
-                    Image(systemName: badge)
-                        .font(.system(size: KPIDimension.badgeFontSize, weight: .semibold))
-                        .foregroundStyle(.white)
-                        .padding(KPIDimension.badgeInnerPadding)
-                        .background(Color(hex: ColorRGB.badge))
-                        .clipShape(Circle())
-                }
-                Text(title)
-                    .font(.system(
-                        size: HeaderDimension.fontSize,
-                        weight: .medium,
-                        design: .rounded
-                    ))
-                    .foregroundColor(Color(hex: ColorRGB.title))
-                if let latency = latency {
-                    Rectangle()
-                        .fill(Color(hex: ColorRGB.footerBackground))
-                        .frame(width: 1, height: HeaderDimension.fontSize)
-                    Text(latency)
-                        .font(.system(size: HeaderDimension.fontSize, weight: .light))
-                        .foregroundStyle(Color(hex: ColorRGB.latency))
-                        .monospacedDigit()
-                }
-                Spacer()
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.horizontal, HeaderDimension.hSpacing)
-    }
-}

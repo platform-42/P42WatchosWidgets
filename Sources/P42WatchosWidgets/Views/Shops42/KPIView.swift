@@ -277,65 +277,6 @@ extension KPIView {
         )
     }
     
-    
-    @ViewBuilder
-    private func headerView(
-        title: String,
-        titleBadge: String?,
-        latency: String?
-    ) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                if let badge = titleBadge {
-                    Image(systemName: badge)
-                        .font(.system(size: KPIDimension.badgeFontSize, weight: .semibold))
-                        .foregroundStyle(.white)
-                        .padding(KPIDimension.badgeInnerPadding)
-                        .background(Color(hex: ColorRGB.badge))
-                        .clipShape(Circle())
-                }
-                Text(title)
-                    .font(.system(
-                        size: HeaderDimension.fontSize,
-                        weight: .medium,
-                        design: .rounded
-                    ))
-                    .foregroundColor(Color(hex: ColorRGB.title))
-                if let latency = latency {
-                    Rectangle()
-                        .fill(Color(hex: ColorRGB.footerBackground))
-                        .frame(width: 1, height: HeaderDimension.fontSize)
-                    Text(latency)
-                        .font(.system(size: HeaderDimension.fontSize, weight: .light))
-                        .foregroundStyle(Color(hex: ColorRGB.latency))
-                        .monospacedDigit()
-                }
-                Spacer()
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.horizontal, HeaderDimension.hSpacing)
-    }
-    
-    @ViewBuilder
-    private func footerView(
-        footer: String
-    ) -> some View {
-        HStack {
-            Spacer()
-            Text(footer)
-                .font(.system(size: FooterDimension.fontSize, weight: .semibold, design: .rounded))
-                .foregroundColor(.black)
-                .padding(.horizontal, FooterDimension.hSpacing)
-                .padding(.vertical, FooterDimension.vSpacing)
-                .background(
-                    RoundedRectangle(cornerRadius: FooterDimension.cornerRadius)
-                        .fill(Color(hex: ColorRGB.footerBackground))
-                )
-            Spacer()
-        }
-    }
-    
 
     @ViewBuilder
     private func quantityCell(
