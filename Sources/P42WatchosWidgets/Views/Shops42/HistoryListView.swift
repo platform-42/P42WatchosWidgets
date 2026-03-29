@@ -14,9 +14,9 @@ public enum OrderStatus {
 
     var color: Color {
         switch self {
-        case .paid: return .green
-        case .pending: return .yellow
-        case .refunded: return .red
+        case .paid: return Color(hex: ColorRGB.kpiStateNormal)
+        case .pending: return Color(hex: ColorRGB.kpiStateWarning)
+        case .refunded: return Color(hex: ColorRGB.kpiStateAlert)
         }
     }
 
