@@ -140,4 +140,37 @@ public struct HistoryListView: View {
     }
 }
 
+extension HistoryListView {
+    
+    private func historyRow(
+        kpiItem: KPIViewItem
+    ) -> some View {
+        
+        GeometryReader { geo in
+            HStack(alignment: .center, spacing: 0) {
+            }
+        }
+        .frame(height: KPIDimension.badgeSize + 10)
+        .padding(.horizontal, 8)
+        .background(baseRowGradient)
+        .clipShape(
+            RoundedRectangle(
+                cornerRadius: KPIDimension.cornerRadiusRow,
+                style: .continuous
+            )
+        )
+    }
+    
+    private var baseRowGradient: LinearGradient {
+        LinearGradient(
+            gradient: Gradient(colors: [
+                Color.gray.opacity(0.65),
+                Color.gray.opacity(0.05)
+            ]),
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+    }
+}
+
 
