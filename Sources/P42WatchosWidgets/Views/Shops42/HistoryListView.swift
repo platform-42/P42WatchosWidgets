@@ -152,12 +152,20 @@ extension HistoryListView {
     ) -> some View {
         VStack {
             Text(historyItem.name)
-            BadgedLabel(
-                content: .text(historyItem.financialStatus.label),
-                foregroundColor: historyItem.financialStatus.textColor,
-                backgroundColor: historyItem.financialStatus.color,
-                padding: EdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
-            )
+            Text(historyItem.financialStatus.label)
+                .font(.system(
+                    size: KPIDimension.quantityLabelFontSize,
+                    weight: .semibold,
+                    design: .rounded
+                ))
+                .foregroundColor(historyItem.financialStatus.textColor)
+                .lineLimit(1)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(historyItem.financialStatus.color)
+                .clipShape(
+                    RoundedRectangle(cornerRadius: 6, style: .continuous)
+                )
         }
     }
     
