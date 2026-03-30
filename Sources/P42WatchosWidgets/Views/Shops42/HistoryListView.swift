@@ -129,6 +129,7 @@ public struct HistoryListView: View {
                                 .font(.system(size: 8))
                         }
                     }
+                    .background(baseRowGradient)
                 }
             }
             .scrollIndicators(.hidden)
