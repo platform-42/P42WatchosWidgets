@@ -315,7 +315,7 @@ extension KPIView {
 
         Text(kpiItem.label)
             .font(.system(
-                size: KPIDimension.companyFontSize,
+                size: KPIDimension.quantityLabelFontSize,
                 weight: .semibold,
                 design: .rounded
             ))

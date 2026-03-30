@@ -48,6 +48,7 @@ enum KPIDimension {
     static let badgeSize: CGFloat = 28
     static let badgeFontSize: CGFloat = 14
     static let quantityFontSize: CGFloat = 22
+    static let quantityLabelFontSize: CGFloat = 12
     static let cornerRadiusRow: CGFloat = 12
     static let quantityCellWidth: CGFloat = 0.55
     static let quantityLabelCellWidth: CGFloat = 0.45
