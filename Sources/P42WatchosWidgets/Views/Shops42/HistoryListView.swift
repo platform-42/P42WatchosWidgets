@@ -35,6 +35,15 @@ public enum OrderStatus {
         case .unknown: return .gray
         }
     }
+    
+    public var textColor: Color {
+        switch self {
+        case .paid: return .white
+        case .pending: return .white
+        case .refunded: return .white
+        case .unknown: return .white
+        }
+    }
 
     public var label: String {
         switch self {
@@ -109,7 +118,7 @@ public struct HistoryListView: View {
                             Text(order.name)
                             BadgedLabel(
                                 content: .text(order.financialStatus.label),
-                                foregroundColor: .black,
+                                foregroundColor: order.financialStatus.textColor,
                                 backgroundColor: order.financialStatus.color,
                                 padding: EdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
                             )
