@@ -130,7 +130,11 @@ extension HistoryListView {
         GeometryReader { geo in
             HStack(alignment: .center, spacing: 0) {
                 orderStatusCell(historyItem: historyItem)
-                orderDetailsCell(historyItem: historyItem)
+                    .frame(width: geo.size.width * HistoryListDimension.orderStatusCellWidth, alignment: .leading)
+                    .frame(maxHeight: .infinity, alignment: .center)
+                orderDetailCell(historyItem: historyItem)
+                    .frame(width: geo.size.width * HistoryListDimension.orderDetailCellWidth, alignment: .leading)
+                    .frame(maxHeight: .infinity, alignment: .center)
             }
         }
         .padding(.horizontal, 8)
@@ -157,7 +161,7 @@ extension HistoryListView {
         }
     }
     
-    private func orderDetailsCell(
+    private func orderDetailCell(
         historyItem: HistoryListItem
     ) -> some View {
         VStack {

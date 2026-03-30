@@ -47,10 +47,15 @@ enum KPIDimension {
     static let badgeInnerPadding: CGFloat = 6
     static let badgeSize: CGFloat = 28
     static let badgeFontSize: CGFloat = 14
-    static let quoteFontSize: CGFloat = 18
     static let quantityFontSize: CGFloat = 22
-    static let companyFontSize: CGFloat = 12
     static let cornerRadiusRow: CGFloat = 12
     static let quantityCellWidth: CGFloat = 0.55
     static let quantityLabelCellWidth: CGFloat = 0.45
+}
+
+
+enum HistoryListDimension {
+    static let cornerRadiusRow: CGFloat = 12
+    static let orderStatusCellWidth: CGFloat = 0.50
+    static let orderDetailCellWidth: CGFloat = 0.50
 }
