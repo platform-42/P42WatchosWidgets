@@ -129,7 +129,6 @@ public struct HistoryListView: View {
                                 .font(.system(size: 8))
                         }
                     }
-                    .background(baseRowGradient)
                 }
             }
             .scrollIndicators(.hidden)
@@ -146,12 +145,12 @@ extension HistoryListView {
     private func historyRow(
         kpiItem: KPIViewItem
     ) -> some View {
-        
         GeometryReader { geo in
             HStack(alignment: .center, spacing: 0) {
+                orderStatusCell()
+                orderDetailsCell()
             }
         }
-        .frame(height: KPIDimension.badgeSize + 10)
         .padding(.horizontal, 8)
         .background(baseRowGradient)
         .clipShape(

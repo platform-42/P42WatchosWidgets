@@ -237,7 +237,7 @@ extension KPIView {
 
             }
         }
-        .frame(height: KPIDimension.badgeSize + 10)
+        .frame(height: KPIDimension.badgeSize + 10) // incorrect
         .padding(.horizontal, 8)
         .background(baseRowGradient)
         .background(semanticOverlay(kpiItem: kpiItem))
