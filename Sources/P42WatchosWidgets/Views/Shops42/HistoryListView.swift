@@ -147,8 +147,8 @@ extension HistoryListView {
     ) -> some View {
         GeometryReader { geo in
             HStack(alignment: .center, spacing: 0) {
-                orderStatusCell()
-                orderDetailsCell()
+//                orderStatusCell()
+  //              orderDetailsCell()
             }
         }
         .padding(.horizontal, 8)
