@@ -104,32 +104,14 @@ public struct HistoryListView: View {
     }
     
     public var body: some View {
-        
         VStack {
             HeaderView(
                 title: title.uppercased(),
                 titleBadge: titleBadge,
                 latency: latency
             )
-            List{
-                ForEach(historyList) { order in
-                    HStack {
-                        VStack {
-                            Text(order.name)
-                            BadgedLabel(
-                                content: .text(order.financialStatus.label),
-                                foregroundColor: order.financialStatus.textColor,
-                                backgroundColor: order.financialStatus.color,
-                                padding: EdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
-                            )
-                        }
-                        VStack {
-                            Text("USD")
-                            Text("27 mar 2026")
-                                .font(.system(size: 8))
-                        }
-                    }
-                }
+            List(historyList) { order in
+                historyRow(historyItem: order)
             }
             .scrollIndicators(.hidden)
             #if os(watchOS)
@@ -143,12 +125,12 @@ public struct HistoryListView: View {
 extension HistoryListView {
     
     private func historyRow(
-        kpiItem: KPIViewItem
+        historyItem: HistoryListItem
     ) -> some View {
         GeometryReader { geo in
             HStack(alignment: .center, spacing: 0) {
-//                orderStatusCell()
-  //              orderDetailsCell()
+                orderStatusCell(historyItem: historyItem)
+                orderDetailsCell(historyItem: historyItem)
             }
         }
         .padding(.horizontal, 8)
@@ -159,6 +141,30 @@ extension HistoryListView {
                 style: .continuous
             )
         )
+    }
+    
+    private func orderStatusCell(
+        historyItem: HistoryListItem
+    ) -> some View {
+        VStack {
+            Text(historyItem.name)
+            BadgedLabel(
+                content: .text(historyItem.financialStatus.label),
+                foregroundColor: historyItem.financialStatus.textColor,
+                backgroundColor: historyItem.financialStatus.color,
+                padding: EdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
+            )
+        }
+    }
+    
+    private func orderDetailsCell(
+        historyItem: HistoryListItem
+    ) -> some View {
+        VStack {
+            Text("USD")
+            Text("27 mar 2026")
+                .font(.system(size: 8))
+        }
     }
     
     private var baseRowGradient: LinearGradient {
