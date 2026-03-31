@@ -1,5 +1,5 @@
 {
-  "originHash" : "0b1953890d3e10cd57ca655e33bcde0670d80aefdf6a31aa0c1ff1c74d324313",
+  "originHash" : "0e31f35b3eb2906850be7ac4a8604d38b082b2417da2ffd84d9f4c926e9e6e65",
   "pins" : [
     {
       "identity" : "p42extensions",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "cfa117a1a6fc1f88861dd04bdcf11b7aa346ad9b",
         "version" : "6.0.0"
+      }
+    },
+    {
+      "identity" : "p42utils",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:platform-42/P42utils.git",
+      "state" : {
+        "revision" : "a6619ef5216836ea2ad7d76e10a164ff6974746d",
+        "version" : "9.0.0"
       }
     }
   ],

@@ -12,16 +12,19 @@ let package = Package(
     products: [
         .library(
             name: "P42WatchosWidgets",
-            targets: ["P42WatchosWidgets"]),
+            targets: ["P42WatchosWidgets"]
+        ),
     ],
     dependencies: [
-        .package(url: "git@github.com:platform-42/P42Extensions.git", from: "6.0.0")
-    ],
+        .package(url: "git@github.com:platform-42/P42Extensions.git", from: "6.0.0"),
+        .package(url: "git@github.com:platform-42/P42utils.git", from: "9.0.0")
+   ],
     targets: [
         .target(
             name: "P42WatchosWidgets",
             dependencies: [
-                "P42Extensions"
+                "P42Extensions",
+                "P42utils"
             ]
         )
     ]

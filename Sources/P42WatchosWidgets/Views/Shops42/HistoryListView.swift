@@ -178,7 +178,7 @@ extension HistoryListView {
                 code: "USD",
                 semantics: .absolute
             )
-            Text(historyItem.createdAt)
+            Text(historyItem.createdAt.toString(format: DateTimeFormat.short)))
                 .font(.system(size: 8))
         }
     }
