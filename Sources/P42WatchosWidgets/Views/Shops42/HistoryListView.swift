@@ -86,8 +86,7 @@ public struct HistoryListItem: Identifiable {
         createdAt: String,
         financialStatus: OrderStatus,
         quantity: Double,
-        quantityType: ValueType,
-        baseCurrency: String
+        quantityType: ValueType
     ) {
         self.id = id
         self.name = name
