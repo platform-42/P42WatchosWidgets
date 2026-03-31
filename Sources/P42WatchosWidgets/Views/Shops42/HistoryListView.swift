@@ -149,7 +149,8 @@ extension HistoryListView {
                     .frame(width: geo.size.width * HistoryListDimension.orderStatusCellWidth, alignment: .leading)
                     .frame(maxHeight: .infinity, alignment: .center)
                 orderDetailCell(historyItem: historyItem)
-                    .frame(width: geo.size.width * HistoryListDimension.orderDetailCellWidth, alignment: .leading)
+                    .padding(.horizontal, 8)
+                    .frame(width: geo.size.width * HistoryListDimension.orderDetailCellWidth, alignment: .trailing)
                     .frame(maxHeight: .infinity, alignment: .center)
             }
         }
