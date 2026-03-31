@@ -7,7 +7,22 @@
 
 import SwiftUI
 import P42Extensions
-import P42Utils
+
+func formatShopifyDate(
+    _ isoString: String
+) -> String {
+    let isoFormatter = ISO8601DateFormatter()
+    var date = isoFormatter.date(from: isoString)
+    if date == nil {
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        date = isoFormatter.date(from: isoString)
+    }
+    guard let date else { return isoString } // fallback: return original if parsing fails
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MMM d, HH:mm"
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+    return formatter.string(from: date)
+}
 
 
 public enum OrderStatus {
@@ -179,7 +194,7 @@ extension HistoryListView {
                 code: "USD",
                 semantics: .absolute
             )
-            Text(Utils.formatDate(from: historyItem.createdAt))
+            Text(formatShopifyDate(historyItem.createdAt))
                 .font(.system(size: 8))
         }
     }
