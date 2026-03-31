@@ -7,6 +7,7 @@
 
 import SwiftUI
 import P42Extensions
+import P42Utils
 
 
 public enum OrderStatus {
@@ -178,7 +179,7 @@ extension HistoryListView {
                 code: "USD",
                 semantics: .absolute
             )
-            Text(historyItem.createdAt.toString(format: DateTimeFormat.short)))
+            Text(Utils.formatDate(from: historyItem.createdAt))
                 .font(.system(size: 8))
         }
     }

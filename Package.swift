@@ -17,14 +17,14 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "git@github.com:platform-42/P42Extensions.git", from: "6.0.0"),
-        .package(url: "git@github.com:platform-42/P42utils.git", from: "9.0.0")
+        .package(url: "git@github.com:platform-42/P42Utils.git", from: "9.0.0")
    ],
     targets: [
         .target(
             name: "P42WatchosWidgets",
             dependencies: [
                 "P42Extensions",
-                "P42utils"
+                "P42Utils"
             ]
         )
     ]
