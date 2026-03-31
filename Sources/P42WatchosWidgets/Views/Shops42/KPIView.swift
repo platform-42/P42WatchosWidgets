@@ -61,7 +61,7 @@ private func kpiBGColor(
 }
 
 
-private func prefix(
+func prefix(
     _ value: Double,
     semantics: ValueSemantic
 ) -> String {
@@ -78,7 +78,7 @@ private func prefix(
 }
 
 
-private func formatCompactNumber(
+func formatCompactNumber(
     _ value: Double
 ) -> String {
     let absValue = abs(value)
@@ -97,7 +97,7 @@ private func formatCompactNumber(
 
 
 @ViewBuilder
-private func numbersView(
+func numbersView(
     _ value: Double,
     type: ValueType,
     semantics: ValueSemantic = .absolute
@@ -110,7 +110,7 @@ private func numbersView(
 }
 
 
-private func currencySymbol(
+func currencySymbol(
     for code: String
 ) -> String {
     let formatter = NumberFormatter()
@@ -120,7 +120,7 @@ private func currencySymbol(
 }
 
 
-private func currencyView(
+func currencyView(
     value: Double,
     code: String,
     semantics: ValueSemantic

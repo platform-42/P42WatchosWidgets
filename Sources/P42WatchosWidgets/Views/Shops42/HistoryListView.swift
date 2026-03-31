@@ -11,7 +11,7 @@ import P42Extensions
 
 public enum OrderStatus {
     case paid, pending, refunded, unknown
-
+    
     public init(
         shopifyStatus: String
     ) {
@@ -26,7 +26,7 @@ public enum OrderStatus {
             self = .unknown
         }
     }
-
+    
     public var color: Color {
         switch self {
         case .paid: return Color(hex: ColorRGB.kpiStateNormal)
@@ -44,7 +44,7 @@ public enum OrderStatus {
         case .unknown: return .white
         }
     }
-
+    
     public var label: String {
         switch self {
         case .paid: return "Paid"
@@ -88,7 +88,7 @@ public struct HistoryListView: View {
     public let footer: String
     public let historyList: [HistoryListItem]
     public let latency: String?
-
+    
     public init(
         title: String,
         titleBadge: String? = nil,
@@ -114,9 +114,9 @@ public struct HistoryListView: View {
                 historyRow(historyItem: order)
             }
             .scrollIndicators(.hidden)
-            #if os(watchOS)
+#if os(watchOS)
             .listStyle(CarouselListStyle())
-            #endif
+#endif
             FooterView(footer: footer)
         }
     }
@@ -173,8 +173,12 @@ extension HistoryListView {
         historyItem: HistoryListItem
     ) -> some View {
         VStack {
-            Text("USD")
-            Text("27 mar 2026")
+            currencyView(
+                value: historyItem.quantity,
+                code: "USD",
+                semantics: .absolute
+            )
+            Text(historyItem.createdAt)
                 .font(.system(size: 8))
         }
     }
