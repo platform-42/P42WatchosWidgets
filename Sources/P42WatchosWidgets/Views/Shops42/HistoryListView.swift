@@ -79,6 +79,7 @@ public struct HistoryListItem: Identifiable {
     public let financialStatus: OrderStatus
     public let quantity: Double
     public let quantityType: ValueType
+    public let baseCurrency: String
     
     public init(
         id: Int,
@@ -86,7 +87,8 @@ public struct HistoryListItem: Identifiable {
         createdAt: String,
         financialStatus: OrderStatus,
         quantity: Double,
-        quantityType: ValueType
+        quantityType: ValueType,
+        baseCurrency: String
     ) {
         self.id = id
         self.name = name
@@ -94,6 +96,7 @@ public struct HistoryListItem: Identifiable {
         self.financialStatus = financialStatus
         self.quantity = quantity
         self.quantityType = quantityType
+        self.baseCurrency = baseCurrency
     }
     
 }
@@ -191,7 +194,7 @@ extension HistoryListView {
         VStack {
             currencyView(
                 value: historyItem.quantity,
-                code: "USD",
+                code: historyItem.baseCurrency,
                 semantics: .absolute
             )
             Text(formatShopifyDate(historyItem.createdAt))
