@@ -79,7 +79,6 @@ public struct HistoryListItem: Identifiable {
     public let financialStatus: OrderStatus
     public let quantity: Double
     public let quantityType: ValueType
-    public let baseCurrency: String
     
     public init(
         id: Int,
@@ -96,7 +95,6 @@ public struct HistoryListItem: Identifiable {
         self.financialStatus = financialStatus
         self.quantity = quantity
         self.quantityType = quantityType
-        self.baseCurrency = baseCurrency
     }
     
 }
@@ -194,7 +192,12 @@ extension HistoryListView {
         VStack {
             currencyView(
                 value: historyItem.quantity,
-                code: historyItem.baseCurrency,
+                code: {
+                    if case let .currency(code) = historyItem.quantityType {
+                        return code
+                    }
+                    return ""
+                }(),
                 semantics: .absolute
             )
             Text(formatShopifyDate(historyItem.createdAt))
