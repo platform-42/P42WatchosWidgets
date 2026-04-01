@@ -8,7 +8,7 @@
 enum ColorRGB {
     static let title: Int = 0x3BDDEC
     static let latency: Int = 0xFDC209
-    static let footer: Int = 0x999999
+    static let footer: Int = 0x000000
     static let footerBackground: Int = 0xFDC209
     static let badge: Int = 0x378F87
     static let kpiStateNormal: Int = 0x008E00
