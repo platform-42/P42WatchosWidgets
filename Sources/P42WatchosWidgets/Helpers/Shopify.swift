@@ -37,10 +37,10 @@ public enum OrderStatus {
     
     public var textColor: Color {
         switch self {
-        case .paid: return .white
-        case .pending: return .white
-        case .refunded: return .black
-        case .unknown: return .white
+        case .paid: return .white // normal
+        case .pending: return .black // warning
+        case .refunded: return .white // alert
+        case .unknown: return .white // unknown
         }
     }
     
