@@ -8,14 +8,6 @@ public enum BadgedLabelContent {
 }
 
 
-enum WidgetColor {
-    static let antracite: Int = 0x21262B
-    static let blue: Int = 0x3A7BD5
-    static let darkBlue: Int = 0x1E3564
-}
-
-
-
 @available(iOS 15.0.0, *)
 public struct BadgedLabel: View {
     

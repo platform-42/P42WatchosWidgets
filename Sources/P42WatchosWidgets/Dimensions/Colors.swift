@@ -15,4 +15,6 @@ enum ColorRGB {
 //    static let kpiStateWarning: Int = 0xE18622
     static let kpiStateWarning: Int = 0xFDC209
     static let kpiStateAlert: Int = 0xFF2500
+    static let funnel: Int = 0x3A7BD5
+    static let deviceBadge: Int = 0x1E3564
 }

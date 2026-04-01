@@ -146,7 +146,7 @@ extension FunnelView {
     ) -> some View {
         ZStack {
             Circle()
-                .fill(Color(hex: WidgetColor.darkBlue))
+                .fill(Color(hex: ColorRGB.deviceBadge))
                 .frame(width: FunnelDimension.iconSize, height: FunnelDimension.iconSize)
             icon
                 .foregroundColor(.white)

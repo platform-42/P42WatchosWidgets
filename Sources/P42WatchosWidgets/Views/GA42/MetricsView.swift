@@ -151,7 +151,7 @@ extension MetricsView {
         state: WidgetState,
     ) -> some View {
         let widgetState = showArrow ? state : .neutral
-        let widgetColor: Color = showArrow ? Widget.stateFieldColor(widgetState) : Color(hex: WidgetColor.blue)
+        let widgetColor: Color = showArrow ? Widget.stateFieldColor(widgetState) : Color(hex: ColorRGB.funnel)
         let widgetImage: String = showArrow ? Widget.stateFieldImage(state) : "chart.bar.xaxis"
         ZStack {
             Circle()
