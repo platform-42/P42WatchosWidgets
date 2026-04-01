@@ -8,69 +8,6 @@
 import SwiftUI
 import P42Extensions
 
-func formatShopifyDate(
-    _ isoString: String
-) -> String {
-    let isoFormatter = ISO8601DateFormatter()
-    var date = isoFormatter.date(from: isoString)
-    if date == nil {
-        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        date = isoFormatter.date(from: isoString)
-    }
-    guard let date else { return isoString } // fallback: return original if parsing fails
-    let formatter = DateFormatter()
-    formatter.dateFormat = "MMM d, HH:mm"
-    formatter.locale = Locale(identifier: "en_US_POSIX")
-    return formatter.string(from: date)
-}
-
-
-public enum OrderStatus {
-    case paid, pending, refunded, unknown
-    
-    public init(
-        shopifyStatus: String
-    ) {
-        switch shopifyStatus.lowercased() {
-        case "paid":
-            self = .paid
-        case "pending", "authorized":
-            self = .pending
-        case "refunded", "partially_refunded":
-            self = .refunded
-        default:
-            self = .unknown
-        }
-    }
-    
-    public var color: Color {
-        switch self {
-        case .paid: return Color(hex: ColorRGB.kpiStateNormal)
-        case .pending: return Color(hex: ColorRGB.kpiStateWarning)
-        case .refunded: return Color(hex: ColorRGB.kpiStateWarning)
-        case .unknown: return .gray
-        }
-    }
-    
-    public var textColor: Color {
-        switch self {
-        case .paid: return .white
-        case .pending: return .white
-        case .refunded: return .white
-        case .unknown: return .white
-        }
-    }
-    
-    public var label: String {
-        switch self {
-        case .paid: return "Paid"
-        case .pending: return "Pending"
-        case .refunded: return "Refunded"
-        case .unknown: return "Unknown"
-        }
-    }
-}
-
 
 public struct HistoryListItem: Identifiable {
     public let id: Int

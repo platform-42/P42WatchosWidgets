@@ -9,14 +9,14 @@ import SwiftUI
 import Foundation
 import P42Extensions
 
-
+/*
 public enum KPIState {
     case none
     case normal
     case warning
     case alert
 }
-
+*/
 
 public enum ValueType {
     case number
@@ -27,72 +27,6 @@ public enum ValueType {
 public enum ValueSemantic {
     case absolute
     case delta
-}
-
-
-private func kpiColor(
-    kpistate: KPIState
-) -> Color {
-    switch kpistate {
-    case .none:
-        return .primary
-    case .normal:
-        return .white
-    case .warning:
-        return .white
-    case .alert:
-        return .white
-    }
-}
-
-private func kpiBGColor(
-    kpistate: KPIState
-) -> Color {
-    switch kpistate {
-    case .none:
-        return Color.clear
-    case .normal:
-        return Color(hex: ColorRGB.kpiStateNormal)
-    case .warning:
-        return Color(hex: ColorRGB.kpiStateWarning)
-    case .alert:
-        return Color(hex: ColorRGB.kpiStateAlert)
-    }
-}
-
-
-func prefix(
-    _ value: Double,
-    semantics: ValueSemantic
-) -> String {
-    if semantics == .absolute {
-        return ""
-    }
-    if value > 0 {
-        return "+"
-    }
-    if value < 0 {
-        return "-"
-    }
-    return ""
-}
-
-
-func formatCompactNumber(
-    _ value: Double
-) -> String {
-    let absValue = abs(value)
-    
-    switch absValue {
-    case 1_000_000_000...:
-        return String(format: "%.1fB", value / 1_000_000_000)
-    case 1_000_000...:
-        return String(format: "%.1fM", value / 1_000_000)
-    case 1_000...:
-        return String(format: "%.1fK", value / 1_000)
-    default:
-        return String(format: "%.0f", value)
-    }
 }
 
 
@@ -269,7 +203,7 @@ extension KPIView {
     ) -> LinearGradient {
         LinearGradient(
             gradient: Gradient(colors: [
-                kpiBGColor(kpistate: kpiItem.kpiState),
+                kpiItem.kpiState.color,
                 Color.clear
             ]),
             startPoint: .leading,
@@ -319,15 +253,14 @@ extension KPIView {
                 weight: .semibold,
                 design: .rounded
             ))
-            .foregroundColor(kpiColor(kpistate: kpiItem.kpiState))
+            .foregroundColor(kpiItem.kpiState.textColor)
             .lineLimit(1)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
-            .background(kpiBGColor(kpistate: kpiItem.kpiState))
+            .background(kpiItem.kpiState.color)
             .clipShape(
                 RoundedRectangle(cornerRadius: 6, style: .continuous)
             )
     }
 
-    
 }
