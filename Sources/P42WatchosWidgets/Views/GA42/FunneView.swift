@@ -74,19 +74,7 @@ public struct FunnelView: View {
             ForEach(funnelItems) { item in
                 dashboardRow(funnelItem: item)
             }
-            HStack {
-                Spacer()
-                Text(propertyName)
-                    .font(.system(size: FooterDimension.fontSize, weight: .semibold, design: .rounded))
-                    .foregroundColor(.black)
-                    .padding(.horizontal, FooterDimension.hSpacing)
-                    .padding(.vertical, FooterDimension.vSpacing)
-                    .background(
-                        RoundedRectangle(cornerRadius: FooterDimension.cornerRadius)
-                            .fill(Color(hex: WidgetStatusColor.warning.rawValue))
-                    )
-                Spacer()
-            }
+            FooterView(footer: propertyName)
         }
         .padding(.vertical)
     }
