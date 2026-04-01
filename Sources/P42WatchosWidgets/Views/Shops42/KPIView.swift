@@ -9,14 +9,6 @@ import SwiftUI
 import Foundation
 import P42Extensions
 
-/*
-public enum KPIState {
-    case none
-    case normal
-    case warning
-    case alert
-}
-*/
 
 public enum ValueType {
     case number
