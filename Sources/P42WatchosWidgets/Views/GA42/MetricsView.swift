@@ -56,25 +56,11 @@ public struct MetricsView: View {
     
     public var body: some View {
         VStack(spacing: 6) {
-            HStack(spacing: 4) {
-                Text(title)
-                    .font(.system(size: HeaderDimension.fontSize, weight: .medium, design: .rounded))
-                    .foregroundColor(Color(hex: ColorRGB.title))
-                    .padding(.horizontal, HeaderDimension.hSpacing)
-                    .padding(.vertical, HeaderDimension.vSpacing)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
-                if let latency = latency {
-                    Rectangle()
-                        .fill(Widget.stateFieldColor(.neutral).opacity(0.5))
-                        .frame(width: 1, height: HeaderDimension.fontSize)
-                    Text(latency)
-                        .font(.system(size: HeaderDimension.fontSize, weight: .light))
-                        .foregroundStyle(Widget.stateFieldColor(.neutral))
-                        .monospacedDigit()
-                }
-                Spacer()
-            }
+            HeaderView(
+                title: title,
+                titleBadge: nil,
+                latency: latency
+            )
             dashboardRow(
                 value: todayValue,
                 label: todayLabel,
