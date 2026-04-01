@@ -39,7 +39,7 @@ public enum OrderStatus {
         switch self {
         case .paid: return .white
         case .pending: return .white
-        case .refunded: return .white
+        case .refunded: return .black
         case .unknown: return .white
         }
     }
