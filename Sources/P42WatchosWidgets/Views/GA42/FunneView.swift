@@ -52,6 +52,7 @@ public struct FunnelView: View {
     
     public var body: some View {
         VStack(spacing: 6) {
+            /*
             HStack(spacing: 4) {
                 Text(title)
                     .font(.system(size: HeaderDimension.fontSize, weight: .medium, design: .rounded))
@@ -71,6 +72,12 @@ public struct FunnelView: View {
                 }
                 Spacer()
             }
+             */
+            HeaderView(
+                title: title,
+                titleBadge: nil,
+                latency: latency
+            )
             ForEach(funnelItems) { item in
                 dashboardRow(funnelItem: item)
             }
