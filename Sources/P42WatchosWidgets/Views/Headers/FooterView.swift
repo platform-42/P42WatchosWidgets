@@ -16,7 +16,7 @@ struct FooterView: View {
             Spacer()
             Text(footer)
                 .font(.system(size: FooterDimension.fontSize, weight: .semibold, design: .rounded))
-                .foregroundColor(.black)
+                .foregroundColor(Color(hex: ColorRGB.footer))
                 .padding(.horizontal, FooterDimension.hSpacing)
                 .padding(.vertical, FooterDimension.vSpacing)
                 .background(

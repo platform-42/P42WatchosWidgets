@@ -55,7 +55,7 @@ public struct FunnelView: View {
             HStack(spacing: 4) {
                 Text(title)
                     .font(.system(size: HeaderDimension.fontSize, weight: .medium, design: .rounded))
-                    .foregroundColor(Color(hex:0x3BDDEC))
+                    .foregroundColor(Color(hex: ColorRGB.title))
                     .padding(.horizontal, HeaderDimension.hSpacing)
                     .padding(.vertical, HeaderDimension.vSpacing)
                     .frame(maxWidth: .infinity, alignment: .leading)

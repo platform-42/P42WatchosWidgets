@@ -59,8 +59,7 @@ public struct MetricsView: View {
             HStack(spacing: 4) {
                 Text(title)
                     .font(.system(size: HeaderDimension.fontSize, weight: .medium, design: .rounded))
-//                    .foregroundColor(Color(hex: 0x89CFF0))
-                    .foregroundColor(Color(hex: 0x3BDDEC))
+                    .foregroundColor(Color(hex: ColorRGB.title))
                     .padding(.horizontal, HeaderDimension.hSpacing)
                     .padding(.vertical, HeaderDimension.vSpacing)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -94,19 +93,7 @@ public struct MetricsView: View {
                 showArrow: false,
                 state: .neutral
             )
-            HStack {
-                Spacer()
-                Text(propertyName)
-                    .font(.system(size: FooterDimension.fontSize, weight: .semibold, design: .rounded))
-                    .foregroundColor(.black)
-                    .padding(.horizontal, FooterDimension.hSpacing)
-                    .padding(.vertical, FooterDimension.vSpacing)
-                    .background(
-                        RoundedRectangle(cornerRadius: FooterDimension.cornerRadius)
-                            .fill(Color(hex: WidgetStatusColor.warning.rawValue))
-                    )
-                Spacer()
-            }
+            FooterView(footer: propertyName)
         }
         .padding(.vertical)
     }
