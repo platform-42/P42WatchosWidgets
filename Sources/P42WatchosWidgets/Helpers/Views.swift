@@ -24,40 +24,8 @@ public enum KPIState {
         switch self {
         case .none: return .primary
         case .normal: return .white
-        case .warning: return .white
+        case .warning: return .black
         case .alert: return .white
         }
-    }
-}
-
-/*
-private func kpiColor(
-    kpistate: KPIState
-) -> Color {
-    switch kpistate {
-    case .none:
-        return .primary
-    case .normal:
-        return .white
-    case .warning:
-        return .white
-    case .alert:
-        return .white
-    }
-}
- */
-
-private func kpiBGColor(
-    kpistate: KPIState
-) -> Color {
-    switch kpistate {
-    case .none:
-        return Color.clear
-    case .normal:
-        return Color(hex: ColorRGB.kpiStateNormal)
-    case .warning:
-        return Color(hex: ColorRGB.kpiStateWarning)
-    case .alert:
-        return Color(hex: ColorRGB.kpiStateAlert)
     }
 }

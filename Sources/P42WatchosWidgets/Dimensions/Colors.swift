@@ -12,6 +12,7 @@ enum ColorRGB {
     static let footerBackground: Int = 0xFDC209
     static let badge: Int = 0x378F87
     static let kpiStateNormal: Int = 0x008E00
-    static let kpiStateWarning: Int = 0xE18622
+//    static let kpiStateWarning: Int = 0xE18622
+    static let kpiStateWarning: Int = 0xFDC209
     static let kpiStateAlert: Int = 0xFF2500
 }
